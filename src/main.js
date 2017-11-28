@@ -1,20 +1,19 @@
 
 // LIBS
-import Vue 									from "vue";
-
-import { sync }							from "vuex-router-sync";
+import Vue 								from "vue";
+import { sync }						from "vuex-router-sync";
 
 // STORE
-import store 								from "./vuex/store.js";
+import store 							from "./vuex/store.js";
 
 // ROUTER
-import router 							from "./router/router.js";
+import router 						from "./router/router.js";
 
 // Combine
 sync(store, router);
 
 // CORE
-import App 									from "./components/App.vue";
+import App 								from "./components/App.vue";
 
 // INSTANCE
 new Vue({

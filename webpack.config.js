@@ -1,38 +1,46 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require("path")
+var webpack = require("webpack")
 
 module.exports = {
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "/dist"),
     publicPath: "/dist/",
-    filename: 'build.js'
+    filename: "build.js"
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          // vue-loader options go here
-        }
+        use: [
+          {
+            loader: "vue-loader",
+            options: {
+              scss: "vue-style-loader!css-loader!sass-loader", // <style lang="scss">
+              sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax" // <style lang="sass">
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          { loader: "babel-loader" }
+        ],
         exclude: /node_modules/
       },
-	  {
-		test: /\.css$/,
-		loader: "css-loader",
-		exclude: /node_modules/
-	  },
+  	  {
+    		test: /\.css$/,
+    		use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+  	  },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
+        use: [
+          { loader: "file-loader", options: { name: "[name].[ext]?[hash]"} }
+        ]
       }
     ]
   },
@@ -65,6 +73,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ])
 }
