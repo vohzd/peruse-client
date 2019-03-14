@@ -34,4 +34,16 @@ export default {
     text-decoration: none;
   }
 
+  h1 {
+    font-size: 64px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  .mt {
+    margin-top: 16px;
+  }
+
 </style>
