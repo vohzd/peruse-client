@@ -42,8 +42,42 @@ export default {
     font-size: 32px;
   }
 
+  input {
+    background: rgba(0,0,0,0.01);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 64px 0px rgba(0,0,0,0.1) inset;
+    padding: 16px;
+    width: 50%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    border-radius: 8px;
+  }
+
+  button {
+    background: rgba(0,0,0,0.01);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 64px 0px rgba(0,0,0,0.1) inset;
+    padding: 16px;
+    width: 25%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    border-radius: 8px;
+    transition: 1s all;
+  }
+
+  button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .ml {
+    margin-left: 16px;
+  }
+
   .mt {
     margin-top: 16px;
+  }
+
+  .main-wrapper {
+    margin: 64px;
   }
 
 </style>
