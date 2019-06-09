@@ -1,20 +1,20 @@
 {
-  "name": "peruse-dashboard",
-  "version": "0.0.1",
+  "name": "peruse-client",
+  "version": "0.0.2",
   "scripts": {
     "dev": "nuxt"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vohzd/peruse-dashboard.git"
+    "url": "git+https://github.com/vohzd/peruse-client.git"
   },
   "author": "vohzd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vohzd/peruse-dashboard/issues"
+    "url": "https://github.com/vohzd/peruse-client/issues"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.4.1",
-    "nuxt": "^2.4.5"
+    "@nuxtjs/axios": "^5.5.4",
+    "nuxt": "^2.8.1"
   }
 }
