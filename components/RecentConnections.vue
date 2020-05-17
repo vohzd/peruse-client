@@ -1,6 +1,7 @@
 <template lang="html">
   <section class="mt">
     <h4>Recent Connections</h4>
+    <span class="tiny">none...</span>
   </section>
 </template>
 

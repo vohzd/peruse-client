@@ -14,8 +14,8 @@
     "url": "https://github.com/vohzd/peruse-client/issues"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.9.2",
-    "nuxt": "^2.11.0",
+    "@nuxtjs/axios": "^5.10.3",
+    "nuxt": "^2.12.2",
     "socket.io-client": "^2.3.0"
   }
 }
