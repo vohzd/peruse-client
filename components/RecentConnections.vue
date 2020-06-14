@@ -8,24 +8,30 @@
 <script>
 
 import { mapGetters }					from "vuex";
-import io 										from "socket.io-client";
 
 export default {
   data(){
     return {
-      socket: io("http://localhost:1337")
+      ws: null
     }
   },
   methods: {
     init(){
-      console.log(this.socket)
-      this.socket.on("user-action", (actionData) => {
-				this.handleUserAction(actionData);
-			});
+      // todo but this higher up
+      this.ws = new WebSocket("ws://localhost:1789?token=ISADMIN");
+      this.ws.onopen = (event) => {
+        this.sendWebsocketMessage("admin-connection", "eiwhfioewifow");
+      }
+      this.ws.onmessage = (response) => {
+        this.handleWebsocketResponse(JSON.parse(response.data));
+      };
     },
-    handleUserAction(actionData){
-      console.log("user action here");
-      console.log(actionData);
+    handleWebsocketResponse(message){
+      console.log("server responded with...")
+      console.log(message);
+    },
+    sendWebsocketMessage(type, body){
+      this.ws.send( JSON.stringify({ "type": type, "body": body }));
     }
   },
   mounted(){
