@@ -1,7 +1,10 @@
 <template lang="html">
   <section class="mt">
     <h4>Recent Connections</h4>
-    <span class="tiny">none...</span>
+    <div v-for="(connection, fingerprint) in connections" class="row" >
+      <span>client fingerprint: {{ fingerprint }}</span>
+      <span>visits: {{ connection.visits }}</span>
+    </div>
   </section>
 </template>
 
@@ -12,7 +15,8 @@ import { mapGetters }					from "vuex";
 export default {
   data(){
     return {
-      ws: null
+      ws: null,
+      connections: {}
     }
   },
   methods: {
@@ -27,8 +31,7 @@ export default {
       };
     },
     handleWebsocketResponse(message){
-      console.log("server responded with...")
-      console.log(message);
+      this.connections = message;
     },
     sendWebsocketMessage(type, body){
       this.ws.send( JSON.stringify({ "type": type, "body": body }));
